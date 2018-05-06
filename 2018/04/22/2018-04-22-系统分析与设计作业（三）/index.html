@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.2.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.2.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.2.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="1. 用例建模a. 阅读 Asg_RH 文档，绘制用例图 b. 选择你熟悉的定旅馆在线服务系统（或移动 APP），如绘制用例图。并满足以下要求： 对比 Asg_RH 用例图，请用色彩标注出创新用例或子用例 尽可能识别外部系统，并用色彩标注新的外部系统和服务  我的选择是携程">
+<meta name="keywords" content="Homework">
+<meta property="og:type" content="article">
+<meta property="og:title" content="系统分析与设计-hw3">
+<meta property="og:url" content="http://yoursite.com/2018/04/22/2018-04-22-系统分析与设计作业（三）/index.html">
+<meta property="og:site_name" content="Bowen&#39;s Blog">
+<meta property="og:description" content="1. 用例建模a. 阅读 Asg_RH 文档，绘制用例图 b. 选择你熟悉的定旅馆在线服务系统（或移动 APP），如绘制用例图。并满足以下要求： 对比 Asg_RH 用例图，请用色彩标注出创新用例或子用例 尽可能识别外部系统，并用色彩标注新的外部系统和服务  我的选择是携程">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/img/Arg_RH_usercase.png">
+<meta property="og:image" content="http://yoursite.com/img/xiecheng_main.png">
+<meta property="og:image" content="http://yoursite.com/img/xiecheng_map.png">
+<meta property="og:image" content="http://yoursite.com/img/xiecheng_comment.png">
+<meta property="og:image" content="http://yoursite.com/img/xiecheng_insurance.png">
+<meta property="og:image" content="http://yoursite.com/img/xiecheng_usecase.png">
+<meta property="og:image" content="http://yoursite.com/img/findhotel_usecase.png">
+<meta property="og:image" content="http://yoursite.com/img/atm_sequence.png">
+<meta property="og:image" content="https://github.com/Bowenwu1/bowenwu1.github.io/blob/master/img/taobao_png.png">
+<meta property="og:updated_time" content="2018-05-06T10:09:20.988Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="系统分析与设计-hw3">
+<meta name="twitter:description" content="1. 用例建模a. 阅读 Asg_RH 文档，绘制用例图 b. 选择你熟悉的定旅馆在线服务系统（或移动 APP），如绘制用例图。并满足以下要求： 对比 Asg_RH 用例图，请用色彩标注出创新用例或子用例 尽可能识别外部系统，并用色彩标注新的外部系统和服务  我的选择是携程">
+<meta name="twitter:image" content="http://yoursite.com/img/Arg_RH_usercase.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/04/22/2018-04-22-系统分析与设计作业（三）/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>系统分析与设计-hw3 | Bowen's Blog</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bowen's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />Archives</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/22/2018-04-22-系统分析与设计作业（三）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bob Wu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bowen's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">系统分析与设计-hw3
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-04-22 22:11:11" itemprop="dateCreated datePublished" datetime="2018-04-22T22:11:11+08:00">2018-04-22</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-05-06 18:09:20" itemprop="dateModified" datetime="2018-05-06T18:09:20+08:00">2018-05-06</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-用例建模"><a href="#1-用例建模" class="headerlink" title="1. 用例建模"></a>1. 用例建模</h2><h3 id="a-阅读-Asg-RH-文档，绘制用例图"><a href="#a-阅读-Asg-RH-文档，绘制用例图" class="headerlink" title="a. 阅读 Asg_RH 文档，绘制用例图"></a>a. 阅读 Asg_RH 文档，绘制用例图</h3><p><img src="/img/Arg_RH_usercase.png" alt=""></p>
+<h3 id="b-选择你熟悉的定旅馆在线服务系统（或移动-APP），如绘制用例图。并满足以下要求："><a href="#b-选择你熟悉的定旅馆在线服务系统（或移动-APP），如绘制用例图。并满足以下要求：" class="headerlink" title="b. 选择你熟悉的定旅馆在线服务系统（或移动 APP），如绘制用例图。并满足以下要求："></a>b. 选择你熟悉的定旅馆在线服务系统（或移动 APP），如绘制用例图。并满足以下要求：</h3><ul>
+<li>对比 Asg_RH 用例图，请用色彩标注出创新用例或子用例</li>
+<li>尽可能识别外部系统，并用色彩标注新的外部系统和服务</li>
+</ul>
+<p>我的选择是携程<br><a id="more"></a><br>通过浏览携程的网站</p>
+<p>我发现了以下创新业务</p>
+<p><img src="/img/xiecheng_main.png" alt=""></p>
+<ul>
+<li>在地图中选择酒店</li>
+</ul>
+<p><img src="/img/xiecheng_map.png" alt=""></p>
+<ul>
+<li>选择酒店时查看他人的评论</li>
+</ul>
+<p><img src="/img/xiecheng_comment.png" alt=""></p>
+<ul>
+<li>下单时，购买保险</li>
+</ul>
+<p><img src="/img/xiecheng_insurance.png" alt=""></p>
+<p>用例图：</p>
+<p><img src="/img/xiecheng_usecase.png" alt=""></p>
+<h3 id="c-对比两个时代、不同地区产品的用例图，总结在项目早期，发现创新的思路与方法"><a href="#c-对比两个时代、不同地区产品的用例图，总结在项目早期，发现创新的思路与方法" class="headerlink" title="c. 对比两个时代、不同地区产品的用例图，总结在项目早期，发现创新的思路与方法"></a>c. 对比两个时代、不同地区产品的用例图，总结在项目早期，发现创新的思路与方法</h3><p>第一个用例图是早期的一个外国的订酒店系统，第二个用例图是国内比较新的携程，我们可以看出其实对于订酒店这个业务大体的流程并没有发生改变，都是选酒店、下订单、管理订单、支付。不同的是这里每个业务都有了比较新颖的交互方式。</p>
+<p>总结在项目早期，发现创新的思路与方法：</p>
+<ul>
+<li>对比同类系统，发现当下此种类型系统的可以改善的地方</li>
+<li>了解当下热门的技术，思考自己的项目可否加以利用。如结合<strong>地图</strong>筛选酒店</li>
+<li>优化流程，使得用户体验更简化。如，使用<strong>支付宝</strong>、<strong>微信</strong>扫码支付比使用信用卡更方便</li>
+</ul>
+<h3 id="d-请使用-SCRUM-方法，在（任务b）用例图基础上，编制某定旅馆开发的需求-（backlog）"><a href="#d-请使用-SCRUM-方法，在（任务b）用例图基础上，编制某定旅馆开发的需求-（backlog）" class="headerlink" title="d. 请使用 SCRUM 方法，在（任务b）用例图基础上，编制某定旅馆开发的需求 （backlog）"></a>d. 请使用 SCRUM 方法，在（任务b）用例图基础上，编制某定旅馆开发的需求 （backlog）</h3><table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Imp</th>
+<th>Est</th>
+<th>How to demo</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>查找酒店</td>
+<td>100</td>
+<td>15</td>
+<td>输入地点、酒店简称等可以搜索到对应的酒店</td>
+<td>项目初期可以不用那么丰富的检索方式</td>
+</tr>
+<tr>
+<td>2</td>
+<td>下订单</td>
+<td>100</td>
+<td>40</td>
+<td>查找完酒店后，选择对应的酒店可以编辑订单的详细信息，并提交至后台，同时可以查看历史订单</td>
+<td>一开始订单的交互不用那么复杂</td>
+</tr>
+<tr>
+<td>3</td>
+<td>管理订单</td>
+<td>50</td>
+<td>20</td>
+<td>查看历史订单，可以对订单再次进行编辑、删除等操作</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>支付订单</td>
+<td>50</td>
+<td>50</td>
+<td>查看历史订单或者第一次下订单时可以继续支付</td>
+<td>一开始不用引入过多的支付方式，以安全为主</td>
+</tr>
+<tr>
+<td>5</td>
+<td>评价订单</td>
+<td>20</td>
+<td>20</td>
+<td>一次入住结束之后，用户可以对历史订单进行评价</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-业务建模"><a href="#2-业务建模" class="headerlink" title="2. 业务建模"></a>2. 业务建模</h2><h3 id="a-在（任务b）基础上，用活动图建模找酒店用例。简述利用流程图发现子用例的方法。"><a href="#a-在（任务b）基础上，用活动图建模找酒店用例。简述利用流程图发现子用例的方法。" class="headerlink" title="a. 在（任务b）基础上，用活动图建模找酒店用例。简述利用流程图发现子用例的方法。"></a>a. 在（任务b）基础上，用活动图建模找酒店用例。简述利用流程图发现子用例的方法。</h3><p><strong>找酒店</strong>用例</p>
+<p><img src="/img/findhotel_usecase.png" alt=""></p>
+<p>简述利用流程图发现子用例的方法:</p>
+<ul>
+<li>需要某些流程会有多个入口的情况，这是我们就会发现一个子用例</li>
+<li>从分支汇回中得到子用例</li>
+</ul>
+<h3 id="b-选择你身边的银行-ATM，用活动图描绘取款业务流程"><a href="#b-选择你身边的银行-ATM，用活动图描绘取款业务流程" class="headerlink" title="b. 选择你身边的银行 ATM，用活动图描绘取款业务流程"></a>b. 选择你身边的银行 ATM，用活动图描绘取款业务流程</h3><p><img src="/img/atm_sequence.png" alt=""></p>
+<h3 id="c-查找淘宝退货业务官方文档，使用多泳道图，表达客户、淘宝网、淘宝商家服务系统、商家等用户和系统协同完成退货业务的过程。分析客户要完成退货业务，在淘宝网上需要实现哪些系统用例"><a href="#c-查找淘宝退货业务官方文档，使用多泳道图，表达客户、淘宝网、淘宝商家服务系统、商家等用户和系统协同完成退货业务的过程。分析客户要完成退货业务，在淘宝网上需要实现哪些系统用例" class="headerlink" title="c. 查找淘宝退货业务官方文档，使用多泳道图，表达客户、淘宝网、淘宝商家服务系统、商家等用户和系统协同完成退货业务的过程。分析客户要完成退货业务，在淘宝网上需要实现哪些系统用例"></a>c. 查找淘宝退货业务官方文档，使用多泳道图，表达客户、淘宝网、淘宝商家服务系统、商家等用户和系统协同完成退货业务的过程。分析客户要完成退货业务，在淘宝网上需要实现哪些系统用例</h3><p>官方退货业务文档：</p>
+<p><a href="http://bigdata.taobao.com/docs/doc.htm?treeId=1&amp;articleId=102594&amp;docType=1" target="_blank" rel="noopener">天猫退款退货业务接入说明</a></p>
+<p><img src="https://github.com/Bowenwu1/bowenwu1.github.io/blob/master/img/taobao_png.png" alt=""></p>
+<p>淘宝网需要实现的用例：</p>
+<ul>
+<li>生成退款单</li>
+<li>同意/拒绝退货处理</li>
+<li>变更退款单状态</li>
+<li>同意/拒绝退款处理</li>
+</ul>
+<h2 id="3-用例文本编写"><a href="#3-用例文本编写" class="headerlink" title="3. 用例文本编写"></a>3. 用例文本编写</h2><p>在大作业基础上，分析三种用例文本的优点和缺点</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>特点</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Brief</td>
+<td>用一段话描述主成功场景</td>
+<td>一般几分钟就可以搞定</td>
+<td>内容偏少</td>
+</tr>
+<tr>
+<td>Casual</td>
+<td>不正式的段落格式</td>
+<td>涵盖了更多场景</td>
+<td>仍不够全面</td>
+</tr>
+<tr>
+<td>Fully</td>
+<td>将所有的步骤和变换都详细的写出来，包括先决条件和成功的条件</td>
+<td>需求明确，可以作为编码的参考</td>
+<td>工作量较大，也很难考虑周全</td>
+</tr>
+</tbody>
+</table>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Homework/" rel="tag"># Homework</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/13/2018-04-12-关于Mac配置MySQLClient遇到的坑/" rel="next" title="关于Mac配置MySQLClient遇到的坑">
+                <i class="fa fa-chevron-left"></i> 关于Mac配置MySQLClient遇到的坑
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/29/2018-04-29-系统分析与设计作业（五）/" rel="prev" title="系统分析与设计-hw5">
+                系统分析与设计-hw5 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Bob Wu</p>
+              <p class="site-description motion-element" itemprop="description">Aim Big and Dream High</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">posts</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">tags</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/bowenwu1" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="bowen.wu@163.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-用例建模"><span class="nav-number">1.</span> <span class="nav-text">1. 用例建模</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#a-阅读-Asg-RH-文档，绘制用例图"><span class="nav-number">1.1.</span> <span class="nav-text">a. 阅读 Asg_RH 文档，绘制用例图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#b-选择你熟悉的定旅馆在线服务系统（或移动-APP），如绘制用例图。并满足以下要求："><span class="nav-number">1.2.</span> <span class="nav-text">b. 选择你熟悉的定旅馆在线服务系统（或移动 APP），如绘制用例图。并满足以下要求：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#c-对比两个时代、不同地区产品的用例图，总结在项目早期，发现创新的思路与方法"><span class="nav-number">1.3.</span> <span class="nav-text">c. 对比两个时代、不同地区产品的用例图，总结在项目早期，发现创新的思路与方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#d-请使用-SCRUM-方法，在（任务b）用例图基础上，编制某定旅馆开发的需求-（backlog）"><span class="nav-number">1.4.</span> <span class="nav-text">d. 请使用 SCRUM 方法，在（任务b）用例图基础上，编制某定旅馆开发的需求 （backlog）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-业务建模"><span class="nav-number">2.</span> <span class="nav-text">2. 业务建模</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#a-在（任务b）基础上，用活动图建模找酒店用例。简述利用流程图发现子用例的方法。"><span class="nav-number">2.1.</span> <span class="nav-text">a. 在（任务b）基础上，用活动图建模找酒店用例。简述利用流程图发现子用例的方法。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#b-选择你身边的银行-ATM，用活动图描绘取款业务流程"><span class="nav-number">2.2.</span> <span class="nav-text">b. 选择你身边的银行 ATM，用活动图描绘取款业务流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#c-查找淘宝退货业务官方文档，使用多泳道图，表达客户、淘宝网、淘宝商家服务系统、商家等用户和系统协同完成退货业务的过程。分析客户要完成退货业务，在淘宝网上需要实现哪些系统用例"><span class="nav-number">2.3.</span> <span class="nav-text">c. 查找淘宝退货业务官方文档，使用多泳道图，表达客户、淘宝网、淘宝商家服务系统、商家等用户和系统协同完成退货业务的过程。分析客户要完成退货业务，在淘宝网上需要实现哪些系统用例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-用例文本编写"><span class="nav-number">3.</span> <span class="nav-text">3. 用例文本编写</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bob Wu</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.2.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.2.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.2.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.2.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.2.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.2.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

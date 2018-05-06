@@ -106,30 +106,27 @@
 
 
 
-  <meta name="description" content="前言最近找实习做了不少企业的笔试题，发现很多都考了结构体的占用空间大小的问题，鉴于自己也有点遗忘，于是就找了些资料复习了一下，自己也实验了一下，于是简单写一篇blog分享一下 理论  背书式：各成员变量存放的起始地址相对于结构的起始地址的偏移量必须为该变量的类型所占用的字节数的倍数 各成员变量在存放的时候根据在结构中出现的顺序依次申请空间 同时按照上面的对齐方式调整位置 空缺的字节自动填充 同时为">
-<meta name="keywords" content="Blog">
+  <meta name="description" content="系统分析与设计作业（六）—状态建模状态建模使用 UML State Model  建模对象： 参考 Asg_RH 文档， 对 Reservation/Order 对象建模。 建模要求： 参考练习不能提供足够信息帮助你对订单对象建模，请参考现在 定旅馆 的旅游网站，尽可能分析围绕订单发生的各种情况，直到订单通过销售事件（柜台销售）结束订单。">
+<meta name="keywords" content="Homework">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Struct结构体中的内存对齐">
-<meta property="og:url" content="http://yoursite.com/2018/04/06/2018-04-06-Struct结构体中的内存对齐/index.html">
+<meta property="og:title" content="系统分析与设计-hw6">
+<meta property="og:url" content="http://yoursite.com/2018/04/29/2018-05-06-系统分析与设计作业（六）/index.html">
 <meta property="og:site_name" content="Bowen&#39;s Blog">
-<meta property="og:description" content="前言最近找实习做了不少企业的笔试题，发现很多都考了结构体的占用空间大小的问题，鉴于自己也有点遗忘，于是就找了些资料复习了一下，自己也实验了一下，于是简单写一篇blog分享一下 理论  背书式：各成员变量存放的起始地址相对于结构的起始地址的偏移量必须为该变量的类型所占用的字节数的倍数 各成员变量在存放的时候根据在结构中出现的顺序依次申请空间 同时按照上面的对齐方式调整位置 空缺的字节自动填充 同时为">
+<meta property="og:description" content="系统分析与设计作业（六）—状态建模状态建模使用 UML State Model  建模对象： 参考 Asg_RH 文档， 对 Reservation/Order 对象建模。 建模要求： 参考练习不能提供足够信息帮助你对订单对象建模，请参考现在 定旅馆 的旅游网站，尽可能分析围绕订单发生的各种情况，直到订单通过销售事件（柜台销售）结束订单。">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tKfTcgy1fq2ycxq00kj313a0kudl4.jpg">
-<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcgy1fq2ycxe025j31co0t079y.jpg">
-<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tKfTcgy1fq2ycx2nnkj31d6148dqb.jpg">
-<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tKfTcgy1fq2ycwm5l9j31cm11mwn1.jpg">
-<meta property="og:updated_time" content="2018-05-06T10:14:26.830Z">
+<meta property="og:image" content="http://yoursite.com/img/state_model_rh.png">
+<meta property="og:updated_time" content="2018-05-06T11:34:43.314Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Struct结构体中的内存对齐">
-<meta name="twitter:description" content="前言最近找实习做了不少企业的笔试题，发现很多都考了结构体的占用空间大小的问题，鉴于自己也有点遗忘，于是就找了些资料复习了一下，自己也实验了一下，于是简单写一篇blog分享一下 理论  背书式：各成员变量存放的起始地址相对于结构的起始地址的偏移量必须为该变量的类型所占用的字节数的倍数 各成员变量在存放的时候根据在结构中出现的顺序依次申请空间 同时按照上面的对齐方式调整位置 空缺的字节自动填充 同时为">
-<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/006tKfTcgy1fq2ycxq00kj313a0kudl4.jpg">
+<meta name="twitter:title" content="系统分析与设计-hw6">
+<meta name="twitter:description" content="系统分析与设计作业（六）—状态建模状态建模使用 UML State Model  建模对象： 参考 Asg_RH 文档， 对 Reservation/Order 对象建模。 建模要求： 参考练习不能提供足够信息帮助你对订单对象建模，请参考现在 定旅馆 的旅游网站，尽可能分析围绕订单发生的各种情况，直到订单通过销售事件（柜台销售）结束订单。">
+<meta name="twitter:image" content="http://yoursite.com/img/state_model_rh.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/04/06/2018-04-06-Struct结构体中的内存对齐/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/04/29/2018-05-06-系统分析与设计作业（六）/"/>
 
 
 
@@ -139,7 +136,7 @@
   };
 </script>
 
-  <title>Struct结构体中的内存对齐 | Bowen's Blog</title>
+  <title>系统分析与设计-hw6 | Bowen's Blog</title>
   
 
 
@@ -287,7 +284,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/06/2018-04-06-Struct结构体中的内存对齐/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/29/2018-05-06-系统分析与设计作业（六）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Bob Wu">
@@ -304,7 +301,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Struct结构体中的内存对齐
+          <h1 class="post-title" itemprop="name headline">系统分析与设计-hw6
               
             
           </h1>
@@ -329,7 +326,7 @@
                 
               
 
-              <time title="Created: 2018-04-06 14:49:11" itemprop="dateCreated datePublished" datetime="2018-04-06T14:49:11+08:00">2018-04-06</time>
+              <time title="Created: 2018-04-29 16:20:31" itemprop="dateCreated datePublished" datetime="2018-04-29T16:20:31+08:00">2018-04-29</time>
             
 
             
@@ -346,7 +343,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-05-06 18:14:26" itemprop="dateModified" datetime="2018-05-06T18:14:26+08:00">2018-05-06</time>
+                <time title="Modified: 2018-05-06 19:34:43" itemprop="dateModified" datetime="2018-05-06T19:34:43+08:00">2018-05-06</time>
               
             
           </span>
@@ -379,27 +376,13 @@
       
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近找实习做了不少企业的笔试题，发现很多都考了结构体的占用空间大小的问题，鉴于自己也有点遗忘，于是就找了些资料复习了一下，自己也实验了一下，于是简单写一篇blog分享一下</p>
-<h1 id="理论"><a href="#理论" class="headerlink" title="理论"></a>理论</h1><p><img src="https://ws1.sinaimg.cn/large/006tKfTcgy1fq2ycxq00kj313a0kudl4.jpg" alt=""></p>
-<blockquote>
-<p>背书式：各成员变量存放的起始地址相对于结构的起始地址的偏移量必须为该变量的类型所占用的字节数的倍数 各成员变量在存放的时候根据在结构中出现的顺序依次申请空间 同时按照上面的对齐方式调整位置 空缺的字节自动填充 同时为了确保结构的大小为结构的字节边界数(即该结构中占用最大的空间的类型的字节数)的倍数，所以在为最后一个成员变量申请空间后 还会根据需要自动填充空缺的字节<br>     多!<br>     简!<br>     单!</p>
-<p>作者：邹zl链接：<a href="https://www.zhihu.com/question/27862634/answer/46556769来源：知乎著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。" target="_blank" rel="noopener">https://www.zhihu.com/question/27862634/answer/46556769来源：知乎著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</a><br><a id="more"></a><br>首先在知乎找了个资料，说的还是挺简单又解决了问题，所以搬运一下</p>
-</blockquote>
-<p>整理一下：</p>
+        <h1 id="系统分析与设计作业（六）—状态建模"><a href="#系统分析与设计作业（六）—状态建模" class="headerlink" title="系统分析与设计作业（六）—状态建模"></a>系统分析与设计作业（六）—状态建模</h1><h2 id="状态建模"><a href="#状态建模" class="headerlink" title="状态建模"></a>状态建模</h2><p>使用 UML State Model</p>
 <ul>
-<li>各成员变量存放的起始地址相对于结构的起始地址的<strong>偏移量</strong>必须为该<strong>变量的类型</strong>所占用的字节数的倍数</li>
-<li>各成员变量在存放的时候根据在结构中出现的顺序<strong>依次</strong>申请空间</li>
-<li>同时按照上面的对齐方式调整位置 <strong>空缺的字节自动填充</strong></li>
-<li>同时为了确保结构的大小为结构的字节边界数(即该结构中<strong>占用最大的空间的类型</strong>的字节数)的倍数，所以在为最后一个成员变量申请空间后 还会根据需要自动填充空缺的字节</li>
+<li>建模对象： 参考 Asg_RH 文档， 对 Reservation/Order 对象建模。</li>
+<li><p>建模要求： 参考练习不能提供足够信息帮助你对订单对象建模，请参考现在 定旅馆 的旅游网站，尽可能分析围绕订单发生的各种情况，直到订单通过销售事件（柜台销售）结束订单。</p>
+<p><img src="/img/state_model_rh.png" alt=""></p>
+</li>
 </ul>
-<h1 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 基本的最后补齐</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">a</span> &#123;</span></span><br><span class="line">        <span class="keyword">int</span> i;</span><br><span class="line">        <span class="keyword">char</span> c;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">// b 和 c 为了说明结构体中声明的顺序会影响结构体所占的大小</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">b</span> &#123;</span></span><br><span class="line">        <span class="keyword">char</span> c;</span><br><span class="line">        <span class="keyword">double</span> f;</span><br><span class="line">        <span class="keyword">int</span> in;</span><br><span class="line">        </span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">c</span> &#123;</span></span><br><span class="line">        <span class="keyword">double</span> f;</span><br><span class="line">        <span class="keyword">char</span> c;</span><br><span class="line">        <span class="keyword">int</span> in;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="keyword">sizeof</span>(struct a) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="keyword">sizeof</span>(struct b) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="keyword">sizeof</span>(struct c) &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个实验的输出:</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">8</span><br><span class="line">24</span><br><span class="line">16</span><br></pre></td></tr></table></figure>
-<p>那就再可视化一下内存分布吧</p>
-<p><img src="https://ws4.sinaimg.cn/large/006tKfTcgy1fq2ycxe025j31co0t079y.jpg" alt=""></p>
-<p><img src="https://ws2.sinaimg.cn/large/006tKfTcgy1fq2ycx2nnkj31d6148dqb.jpg" alt=""></p>
-<p><img src="https://ws4.sinaimg.cn/large/006tKfTcgy1fq2ycwm5l9j31cm11mwn1.jpg" alt=""></p>
-<p>（我的触摸笔画的丑了点）</p>
 
       
     </div>
@@ -420,7 +403,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Blog/" rel="tag"># Blog</a>
+            <a href="/tags/Homework/" rel="tag"># Homework</a>
           
         </div>
       
@@ -433,8 +416,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/22/2018-03-22-系统分析与设计作业（二）/" rel="next" title="系统分析与设计作业（二）">
-                <i class="fa fa-chevron-left"></i> 系统分析与设计作业（二）
+              <a href="/2018/04/29/2018-04-29-系统分析与设计作业（五）/" rel="next" title="系统分析与设计-hw5">
+                <i class="fa fa-chevron-left"></i> 系统分析与设计-hw5
               </a>
             
           </div>
@@ -443,8 +426,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/04/13/2018-04-12-关于Mac配置MySQLClient遇到的坑/" rel="prev" title="关于Mac配置MySQLClient遇到的坑">
-                关于Mac配置MySQLClient遇到的坑 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/05/06/test/" rel="prev" title="test">
+                test <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -588,7 +571,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#理论"><span class="nav-number">2.</span> <span class="nav-text">理论</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实验"><span class="nav-number">3.</span> <span class="nav-text">实验</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#系统分析与设计作业（六）—状态建模"><span class="nav-number">1.</span> <span class="nav-text">系统分析与设计作业（六）—状态建模</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#状态建模"><span class="nav-number">1.1.</span> <span class="nav-text">状态建模</span></a></li></ol></li></ol></div>
             
 
           </div>

@@ -1,0 +1,33 @@
+<diagram program="umletino" version="14.2"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>450</x><y>310</y><w>100</w><h>80</h></coordinates><panel_attributes>E用户
+-
+读者号
+名字</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>370</x><y>470</y><w>100</w><h>30</h></coordinates><panel_attributes>教师</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>540</x><y>470</y><w>100</w><h>30</h></coordinates><panel_attributes>学生</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>400</x><y>380</y><w>120</w><h>110</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>100;10;100;60;10;60;10;90</additional_attributes></element><element><id>Relation</id><coordinates><x>490</x><y>380</y><w>110</w><h>110</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;60;90;60;90;90</additional_attributes></element><element><id>UMLClass</id><coordinates><x>180</x><y>300</y><w>100</w><h>130</h></coordinates><panel_attributes>&lt;&lt;session&gt;&gt;
+查询请求
+-
+书名
+作者
+ISBN
+关键词</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>270</x><y>330</y><w>200</w><h>50</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=*
+&lt; 发起</panel_attributes><additional_attributes>180;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>640</x><y>120</y><w>100</w><h>120</h></coordinates><panel_attributes>E图书
+-
+ISBN
+书名
+馆藏量
+借阅量</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>640</x><y>310</y><w>100</w><h>80</h></coordinates><panel_attributes>E预约
+-
+图书
+取书地点
+预约时间</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>450</x><y>140</y><w>100</w><h>50</h></coordinates><panel_attributes>E图书馆
+-
+位置</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>540</x><y>330</y><w>120</w><h>50</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=0..n
+make &gt;</panel_attributes><additional_attributes>10;20;100;20</additional_attributes></element><element><id>Relation</id><coordinates><x>680</x><y>230</y><w>70</w><h>100</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1
+预约 ^</panel_attributes><additional_attributes>10;80;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>540</x><y>150</y><w>120</w><h>50</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=0..n
+拥有 &gt;</panel_attributes><additional_attributes>10;20;100;20</additional_attributes></element></diagram>
